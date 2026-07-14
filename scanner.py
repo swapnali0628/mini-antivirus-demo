@@ -1,5 +1,5 @@
 import os
-from utils import log_detection
+from utils import log_detection, run_command
 
 SIGNATURES = ["virus123", "malware456"]
 
@@ -18,6 +18,18 @@ def scan_directory(directory):
         for file in files:
             scan_file(os.path.join(root, file))
 
-if __name__ == "__main__":
-    scan_directory(".")
+# --- Intentionally insecure code for CodeQL demo ---
+def insecure_eval(user_input):
+    # BAD PRACTICE: eval on user input
+    eval(user_input)  # CodeQL should flag this
 
+def insecure_command(user_input):
+    # BAD PRACTICE: os.system with untrusted input
+    run_command(user_input)  # CodeQL should flag this
+
+if __name__ == "__main__":
+    print("Scanning current directory...")
+    scan_directory(".")
+    # Demo insecure calls
+    insecure_eval("print('Eval executed!')")
+    insecure_command("echo Insecure command executed")

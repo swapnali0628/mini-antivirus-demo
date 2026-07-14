@@ -1,1 +1,6 @@
-# No external dependencies
+
+---
+
+### `requirements.txt`
+```text
+# No external dependencies required

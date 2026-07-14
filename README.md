@@ -1,5 +1,13 @@
-<<<<<<< HEAD
 # Mini Antivirus Demo Project
-=======
-# mini-antivirus-demo
->>>>>>> 973d3d0d133cc662d7a45cf18273a657c15dd3f5
+
+This is a simple Python demo project to illustrate how GitHub CodeQL can analyze code for potential vulnerabilities.
+
+## Features
+- Scans files for simple "signatures"
+- Logs detections
+- Contains intentionally insecure code (`eval`, `os.system`) so CodeQL can flag issues
+
+## Usage
+Run:
+```bash
+python scanner.py
